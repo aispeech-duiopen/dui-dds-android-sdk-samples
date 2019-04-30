@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="speed_normal_text_color">#fafafa</color>
+
+    <color name="accent_material_light">#2196f3</color>
+    <color name="page_dot_unselected">#c9c9c9</color>
+    <color name="page_dot_selected">#00bbae</color>
+</resources>
