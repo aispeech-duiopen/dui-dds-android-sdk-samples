@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_content"
+    android:layout_marginTop="12dp">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="周杰伦"
+        android:textColor="#3D4246"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:layout_marginRight="66dp"
+        android:layout_marginEnd="66dp"
+        android:layout_alignTop="@+id/image"
+        android:layout_toLeftOf="@+id/image"
+        android:layout_toStartOf="@+id/image" />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/image"
+        android:layout_width="80dp"
+        android:layout_height="98dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:id="@+id/sub_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:lineSpacingExtra="3dp"
+        android:text="周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦周杰伦"
+        android:layout_below="@+id/image"
+        android:textColor="#505558"
+        android:textSize="14sp" />
+
+</RelativeLayout>
