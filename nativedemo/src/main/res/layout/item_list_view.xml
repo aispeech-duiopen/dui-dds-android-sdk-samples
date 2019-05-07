@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/r_item_view"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/t_words"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="导航去东方之门"
+        android:layout_centerVertical="true"
+        android:textColor="#B4C0D6"
+        android:textSize="26sp" />
+
+</RelativeLayout>

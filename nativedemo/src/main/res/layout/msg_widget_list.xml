@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.aispeech.nativedemo.widget.pageview.view.PageView
+        android:id="@+id/pageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hide_indicator="false"
+        app:indicator_group_height="@dimen/viewpager_indicator_group_height"
+        app:indicator_margin="@dimen/viewpager_indicator_margin"
+        app:layout_flag="grid"
+        app:orientation="horizontal"
+        app:page_column="1"
+        app:page_row="5"
+        app:selected_indicator_color="@color/page_dot_selected"
+        app:selected_indicator_diameter="8dp"
+        app:selected_indicator_drawable="@drawable/page_point_selected"
+        app:unselected_indicator_color="@color/page_dot_unselected"
+        app:unselected_indicator_diameter="8dp"
+        app:unselected_indicator_drawable="@drawable/page_point_unselected"/>
+
+</LinearLayout>

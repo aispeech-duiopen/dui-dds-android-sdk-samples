@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">nativeDemo</string>
+
+    <string name="hi_str">Hi，你现在可以说 \"%1$s\" 来唤醒我</string>
+    <string name="hi_str2">Hi，你现在可以说 \"%1$s\" 或 \"%2$s\" 来唤醒我</string>
+
+    <string name="update_product_title">更新产品版本</string>
+    <string name="update_product_message">当前产品中内核资源版本过低，请前往DUI控制台对应的产品中，选择最新的内核资源版本并重新发布产品。</string>
+    <string name="update_product_ok">确定</string>
+    <string name="update_product_cancel">退出</string>
+
+    <string name="update_sdk_title">更新sdk</string>
+    <string name="update_sdk_message">当前sdk版本过低，和dui平台上的dui内核不匹配，请更新sdk</string>
+    <string name="update_sdk_ok">确定</string>
+    <string name="update_sdk_cancel">退出</string>
+</resources>
