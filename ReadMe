@@ -1,4 +1,5 @@
 欢迎体验ddsDemo,在体验之前请阅读本说明
+hello world
 
 1. 本demo分为h5demo和natviedemo, 为你展示不同情况下的基本使用
 2. 请在debug模式下编译安装demo,因为debug模式下我们已帮你配好keystore和产品key
