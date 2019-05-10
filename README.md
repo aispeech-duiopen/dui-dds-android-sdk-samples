@@ -1,5 +1,5 @@
 # dui-dds-android-sdk-samples
-全链路语音交互SDK Android 示例代码
+全链路语音交互SDK Android 示例代码(该分支可以体验全双工模式)
 
 1. 本demo分为h5demo和natviedemo, 为你展示不同情况下的基本使用
 2. 本demo默认配置的为单麦,请在手机上体验
