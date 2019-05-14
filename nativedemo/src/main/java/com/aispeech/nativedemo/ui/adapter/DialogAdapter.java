@@ -42,7 +42,7 @@ public class DialogAdapter extends RecyclerView.Adapter {
         switch (viewType) {
             case MessageBean.TYPE_INPUT:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.msg_input, parent, false);
-                holder = new IntputViewHolder(view);
+                holder = new InputViewHolder(view);
                 break;
             case MessageBean.TYPE_OUTPUT:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.msg_output, parent, false);
@@ -102,7 +102,7 @@ public class DialogAdapter extends RecyclerView.Adapter {
         int itemViewType = mList.get(position).getType();
         switch (itemViewType) {
             case MessageBean.TYPE_INPUT:
-                ((IntputViewHolder) holder).content.setText(message.getText());
+                ((InputViewHolder) holder).content.setText(message.getText());
                 break;
             case MessageBean.TYPE_OUTPUT:
                 ((OutputViewHolder) holder).content.setText(message.getText());
@@ -144,10 +144,10 @@ public class DialogAdapter extends RecyclerView.Adapter {
         }
     }
 
-    class IntputViewHolder extends RecyclerView.ViewHolder {
+    class InputViewHolder extends RecyclerView.ViewHolder {
         private TextView content;
 
-        public IntputViewHolder(View itemView) {
+        public InputViewHolder(View itemView) {
             super(itemView);
             content = itemView.findViewById(R.id.content);
         }
