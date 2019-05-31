@@ -1,11 +1,14 @@
 package com.aispeech.nativedemo.ui.adapter;
 
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
@@ -181,9 +184,12 @@ public class DialogAdapter extends RecyclerView.Adapter {
         public WebViewHolder(View itemview) {
             super(itemview);
             webView = itemview.findViewById(R.id.mywebview);
+
             webView.getSettings().setJavaScriptEnabled(true);
-            webView.getSettings().setLoadWithOverviewMode(true);
-            webView.getSettings().setUseWideViewPort(true);
+            webView.setBackgroundColor(0);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
+            }
             webView.setWebViewClient(new WebViewClient() {
 
                 @Override
@@ -194,6 +200,14 @@ public class DialogAdapter extends RecyclerView.Adapter {
 
                 @Override
                 public void onPageFinished(WebView view, final String url) {
+                }
+
+                @Override
+                public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                    super.onReceivedError(view, request, error);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        AILog.e(error.getDescription().toString());
+                    }
                 }
             });
         }
