@@ -113,7 +113,6 @@ public class DDSService extends Service {
         config.addConfig(DDSConfig.K_PRODUCT_ID, "278578029"); // 产品ID -- 必填
         config.addConfig(DDSConfig.K_USER_ID, "aispeech");  // 用户ID -- 必填
         config.addConfig(DDSConfig.K_ALIAS_KEY, "test");   // 产品的发布分支 -- 必填
-        config.addConfig(DDSConfig.K_AUTH_TYPE, AuthType.PROFILE); //授权方式, 支持思必驰账号授权和profile文件授权 -- 必填
         config.addConfig(DDSConfig.K_PRODUCT_KEY, "f51edbf74a8a3bf64083ca9717c3bc76");// Product Key -- 必填
         config.addConfig(DDSConfig.K_PRODUCT_SECRET, "987181c998312a3ceb46d725aa0e47cb");// Product Secre -- 必填
         config.addConfig(DDSConfig.K_API_KEY, "c199b96be65ac199b96be65a5cc7fa49");  // 产品授权秘钥，服务端生成，用于产品授权 -- 必填
@@ -161,7 +160,7 @@ public class DDSService extends Service {
         // config.addConfig(DDSConfig.K_TTS_DEBUG, "true");  // 用于tts音频调试, 开启后在 "/sdcard/Android/data/包名/cache/tts/" 目录下会自动生成tts音频
 
         // 麦克风阵列配置项
-        // config.addConfig(DDSConfig.K_MIC_TYPE, "1"); // 设置硬件采集模组的类型 0：无。默认值。 1：单麦回消 2：线性四麦 3：环形六麦 4：车载双麦 5：家具双麦
+        // config.addConfig(DDSConfig.K_MIC_TYPE, "1"); // 设置硬件采集模组的类型 0：无。默认值。 1：单麦回消 2：线性四麦 3：环形六麦 4：车载双麦 5：家具双麦 6: 环形四麦  7: 新车载双麦
         // config.addConfig(DDSConfig.K_MIC_ARRAY_AEC_CFG, "/data/aec.bin"); // 麦克风阵列aec资源的磁盘绝对路径,需要开发者确保在这个路径下这个资源存在
         // config.addConfig(DDSConfig.K_MIC_ARRAY_BEAMFORMING_CFG, "/data/beamforming.bin"); // 麦克风阵列beamforming资源的磁盘绝对路径，需要开发者确保在这个路径下这个资源存在
         // config.addConfig(DDSConfig.K_MIC_ARRAY_WAKEUP_CFG, "/data/wakeup_cfg.bin"); // 麦克风阵列wakeup配置资源的磁盘绝对路径，需要开发者确保在这个路径下这个资源存在。
