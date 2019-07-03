@@ -1,5 +1,8 @@
 package com.aispeech.nativedemo;
 
+import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +19,7 @@ import com.aispeech.dui.dds.DDS;
 import com.aispeech.dui.dds.DDSAuthListener;
 import com.aispeech.dui.dds.DDSConfig;
 import com.aispeech.dui.dds.DDSInitListener;
-import com.aispeech.dui.dds.auth.AuthType;
+import com.aispeech.nativedemo.ui.LauncherActivity;
 
 import java.util.UUID;
 
@@ -31,12 +34,22 @@ public class DDSService extends Service {
 
     @Override
     public void onCreate() {
+        setForeground();
         super.onCreate();
     }
 
     @Override
     public IBinder onBind(Intent intent) {
         throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    @TargetApi(Build.VERSION_CODES.O)
+    private void setForeground() {
+        Intent intent = new Intent(DDSService.this, LauncherActivity.class);
+        PendingIntent pi = PendingIntent.getActivity(DDSService.this, 0, intent, 0);
+
+        Notification notification = Util.pupNotification(DDSService.this, pi, "DUI ...");
+        startForeground(1, notification);
     }
 
     @Override

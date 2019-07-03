@@ -39,7 +39,7 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name: 'lib-dds-1.1.6.1-release', ext: 'aar')
+    compile(name: 'lib-dds-1.1.7.1-release', ext: 'aar')
     compile 'com.android.support:appcompat-v7:26+'
     compile 'com.android.support:customtabs:25.3.1'
 }
