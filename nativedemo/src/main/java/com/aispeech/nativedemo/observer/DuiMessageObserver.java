@@ -50,6 +50,11 @@ public class DuiMessageObserver implements MessageObserver {
         DDS.getInstance().getAgent().unSubscribe(this);
     }
 
+    private void clearVar() {
+        if (mHasvar) {
+            mMessageList.pollLast();
+        }
+    }
 
     @Override
     public void onMessage(String message, String data) {
@@ -57,6 +62,7 @@ public class DuiMessageObserver implements MessageObserver {
         MessageBean bean = null;
         switch (message) {
             case "context.output.text":
+                clearVar();
                 bean = new MessageBean();
                 String txt = "";
                 try {
