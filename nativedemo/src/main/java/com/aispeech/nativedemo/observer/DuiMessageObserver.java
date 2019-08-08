@@ -1,11 +1,15 @@
 package com.aispeech.nativedemo.observer;
 
-import android.text.TextUtils;
+import android.content.Intent;
 import android.util.Log;
 
 import com.aispeech.dui.dds.DDS;
 import com.aispeech.dui.dds.agent.MessageObserver;
+import com.aispeech.nativedemo.DuiApplication;
 import com.aispeech.nativedemo.bean.MessageBean;
+import com.aispeech.nativedemo.bean.WeatherBean;
+import com.aispeech.nativedemo.music.PlayerActivity;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,6 +23,10 @@ import java.util.LinkedList;
 public class DuiMessageObserver implements MessageObserver {
     private final String Tag = "DuiMessageObserver";
 
+    public DuiMessageObserver() {
+        mGson = new Gson();
+    }
+
     public interface MessageCallback {
         void onMessage();
 
@@ -29,6 +37,7 @@ public class DuiMessageObserver implements MessageObserver {
     private LinkedList<MessageBean> mMessageList;
     private boolean mIsFirstVar = true;
     private boolean mHasvar = false;
+    private Gson mGson;
     private String[] mSubscribeKeys = new String[]{
             "sys.dialog.state",
             "context.output.text",
@@ -36,7 +45,9 @@ public class DuiMessageObserver implements MessageObserver {
             "context.widget.content",
             "context.widget.list",
             "context.widget.web",
-            "context.widget.media"};
+            "context.widget.media",
+            "context.widget.custom"
+    };
 
     // 注册当前更新消息
     public void regist(MessageCallback messageCallback, LinkedList<MessageBean> msgList) {
@@ -188,28 +199,39 @@ public class DuiMessageObserver implements MessageObserver {
                     e.printStackTrace();
                 }
                 break;
-            case "context.widget.media":
+            case "context.widget.custom":
                 bean = new MessageBean();
                 try {
                     JSONObject jo = new JSONObject(data);
-                    JSONArray contentArray = jo.getJSONArray("content");
-                    if (contentArray != null) {
-                        JSONObject contentObj = (JSONObject) contentArray.get(0);
-                        if (contentObj != null) {
-                            String url = contentObj.getString("linkUrl");
-                            if (TextUtils.isEmpty(url)) {
-                                return;
-                            }
-                            bean.setUrl(url);
-                            bean.setType(MessageBean.TYPE_WIDGET_WEB);
-                            mMessageList.add(bean);
-                            if (mMessageCallback != null) {
-                                mMessageCallback.onMessage();
-                            }
+                    String name = jo.optString("name");
+                    if (name.equals("weather")) {
+                        bean.setWeatherBean(mGson.fromJson(data, WeatherBean.class));
+                        bean.setType(MessageBean.TYPE_WIDGET_WEATHER);
+                        mMessageList.add(bean);
+                        if (mMessageCallback != null) {
+                            mMessageCallback.onMessage();
                         }
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                }
+                break;
+            case "context.widget.media":
+                JSONObject jsonObject;
+                int count = 0;
+                String name = "";
+                try {
+                    jsonObject = new JSONObject(data);
+                    count = jsonObject.optInt("count");
+                    name = jsonObject.optString("widgetName");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (count > 0) {
+                    Intent intent = new Intent(DuiApplication.getContext(), PlayerActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("data", data);
+                    DuiApplication.getContext().startActivity(intent);
                 }
                 break;
             case "sys.dialog.state":
@@ -217,6 +239,7 @@ public class DuiMessageObserver implements MessageObserver {
                     mMessageCallback.onState(data);
                 }
                 break;
+            default:
         }
     }
 

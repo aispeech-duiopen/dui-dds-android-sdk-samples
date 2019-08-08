@@ -13,6 +13,7 @@ public class MessageBean {
     public static final int TYPE_WIDGET_LIST = 3;
     public static final int TYPE_WIDGET_WEB = 4;
     public static final int TYPE_WIDGET_MEDIA = 5;
+    public static final int TYPE_WIDGET_WEATHER = 6;
 
     private int type;
     private String text;
@@ -20,6 +21,15 @@ public class MessageBean {
     private String subTitle;
     private String imgUrl;
     private String url;
+    private WeatherBean weatherBean;
+
+    public WeatherBean getWeatherBean() {
+        return weatherBean;
+    }
+
+    public void setWeatherBean(WeatherBean weatherBean) {
+        this.weatherBean = weatherBean;
+    }
 
     public String getUrl() {
         return url;

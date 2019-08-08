@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  app:cardCornerRadius="10dp"
+  app:cardElevation="10dp"
+  android:layout_margin="5dp"
+  android:paddingBottom="10dp"
+  android:layout_height="wrap_content">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+      android:id="@+id/location"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:drawableLeft="@drawable/vector_drawable_location"
+      android:drawablePadding="10dp"
+      android:gravity="center_vertical"
+      android:padding="10dp"
+      android:text="苏州市"
+      android:textSize="14sp" />
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <ImageView
+        android:id="@+id/todayIcon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/vector_drawable_qing_duoyun_day" />
+
+      <TextView
+        android:id="@+id/todayWendu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/todayIcon"
+        android:text="20"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+      <TextView
+        android:id="@+id/todayTianqi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/todayWendu"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/todayIcon"
+        android:text="阴"
+        android:textColor="#000"
+        android:textSize="16sp" />
+
+      <TextView
+        android:id="@+id/todayFeng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/todayTianqi"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/todayIcon"
+        android:text="东北风，2级"
+        android:textColor="#666"
+        android:textSize="14sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_marginLeft="10dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginRight="10dp"
+      android:background="#eee" />
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="10dp"
+      android:layout_marginTop="5dp">
+
+      <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+          android:id="@+id/date1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="明天"
+          android:textSize="14sp" />
+
+        <ImageView
+          android:id="@+id/icon1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:srcCompat="@drawable/vector_drawable_qing_duoyun_day" />
+
+        <TextView
+          android:id="@+id/temp1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="20-30"
+          android:textColor="#000"
+          android:textSize="14sp" />
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+          android:id="@+id/date2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="明天"
+          android:textSize="14sp" />
+
+        <ImageView
+          android:id="@+id/icon2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:srcCompat="@drawable/vector_drawable_qing_duoyun_day" />
+
+        <TextView
+          android:id="@+id/temp2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="20-30"
+          android:textColor="#000"
+          android:textSize="14sp" />
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+          android:id="@+id/date3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="明天"
+          android:textSize="14sp" />
+
+        <ImageView
+          android:id="@+id/icon3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:srcCompat="@drawable/vector_drawable_qing_duoyun_day" />
+
+        <TextView
+          android:id="@+id/temp3"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="20-30"
+          android:textColor="#000"
+          android:textSize="14sp" />
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+          android:id="@+id/date4"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="明天"
+          android:textSize="14sp" />
+
+        <ImageView
+          android:id="@+id/icon4"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:srcCompat="@drawable/vector_drawable_qing_duoyun_day" />
+
+        <TextView
+          android:id="@+id/temp4"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="20-30"
+          android:textColor="#000"
+          android:textSize="14sp" />
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+          android:id="@+id/date5"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="明天"
+          android:textSize="14sp" />
+
+        <ImageView
+          android:id="@+id/icon5"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:srcCompat="@drawable/vector_drawable_qing_duoyun_day" />
+
+        <TextView
+          android:id="@+id/temp5"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="20-30"
+          android:textColor="#000"
+          android:textSize="14sp" />
+      </LinearLayout>
+    </LinearLayout>
+  </LinearLayout>
+</android.support.v7.widget.CardView>
