@@ -10,6 +10,8 @@ public class AgentTestActivity extends BaseTestActivity {
     @Override
     protected void initData() {
         mData.add(new ListItem<>("文本请求", null));
+        mData.add(new ListItem<>("开启对话", null));
+        mData.add(new ListItem<>("终止对话", null));
     }
 
     @Override
@@ -17,6 +19,8 @@ public class AgentTestActivity extends BaseTestActivity {
         switch (item.getTitle()) {
             case "文本请求":
                 sendText();
+                break;
+            case "":
                 break;
         }
     }
