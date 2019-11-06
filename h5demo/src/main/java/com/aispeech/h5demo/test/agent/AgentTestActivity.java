@@ -20,7 +20,8 @@ public class AgentTestActivity extends BaseTestActivity {
             case "文本请求":
                 sendText();
                 break;
-            case "":
+            case "开启对话":
+
                 break;
         }
     }
