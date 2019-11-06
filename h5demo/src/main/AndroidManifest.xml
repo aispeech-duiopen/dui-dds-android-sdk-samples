@@ -30,10 +30,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.aispeech.h5demo.MainActivity"></activity>
+        <activity android:name="com.aispeech.h5demo.MainActivity" android:launchMode="singleTask"></activity>
 
         <service android:name="com.aispeech.h5demo.DDSService"></service>
         <service android:name="com.aispeech.h5demo.PhoneCallService"></service>
+
+        // ----------------------test----------------------
+        <activity android:name=".test.MainTestActivity"></activity>
+        <activity android:name=".test.wakeup.WakeupTestActivity"></activity>
+        <activity android:name=".test.agent.AgentTestActivity"></activity>
+        // ----------------------test----------------------
     </application>
 
 </manifest>

@@ -23,6 +23,18 @@
             android:layout_alignParentBottom="true"
             android:background="#dddddd" />
 
+        <TextView
+            android:id="@+id/test_tv"
+            android:layout_width="wrap_content"
+            android:text="测试用例"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="15dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:paddingRight="15dp"
+            android:layout_height="match_parent" />
+
     </RelativeLayout>
 
     <RelativeLayout

@@ -19,6 +19,7 @@ import com.aispeech.h5demo.observer.DuiCommandObserver;
 import com.aispeech.h5demo.observer.DuiMessageObserver;
 import com.aispeech.h5demo.observer.DuiNativeApiObserver;
 import com.aispeech.h5demo.observer.DuiUpdateObserver;
+import com.aispeech.h5demo.test.MainTestActivity;
 import com.aispeech.h5demo.webview.HybridWebViewClient;
 import com.aispeech.dui.dds.DDS;
 import com.aispeech.dui.dds.exceptions.DDSNotInitCompleteException;
@@ -65,6 +66,14 @@ public class MainActivity extends AppCompatActivity implements DuiUpdateObserver
                 } catch (DDSNotInitCompleteException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+        this.findViewById(R.id.test_tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainTestActivity.class);
+                intent.putExtra("title", "DDS 测试");
+                startActivity(intent);
             }
         });
 
