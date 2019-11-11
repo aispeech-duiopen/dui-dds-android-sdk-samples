@@ -46,6 +46,7 @@
         <activity android:name=".test.agent.AgentTestActivity" />
         <activity android:name=".test.tts.TTSTestActivity" />
         <activity android:name=".test.vad.VadTestActivity" />
+        <activity android:name=".test.vprint.VprintTestActivity" />
     </application>
 
 </manifest>

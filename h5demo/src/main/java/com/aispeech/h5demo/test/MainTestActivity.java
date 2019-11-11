@@ -5,6 +5,7 @@ import android.content.Intent;
 import com.aispeech.h5demo.test.agent.AgentTestActivity;
 import com.aispeech.h5demo.test.tts.TTSTestActivity;
 import com.aispeech.h5demo.test.vad.VadTestActivity;
+import com.aispeech.h5demo.test.vprint.VprintTestActivity;
 import com.aispeech.h5demo.test.wakeup.WakeupTestActivity;
 
 
@@ -16,6 +17,7 @@ public class MainTestActivity extends BaseTestActivity {
         mData.add(new ListItem<>("TTS测试", TTSTestActivity.class));
         mData.add(new ListItem<>("vad测试", VadTestActivity.class));
         mData.add(new ListItem<>("云端对话测试", AgentTestActivity.class));
+        mData.add(new ListItem<>("声纹测试", VprintTestActivity.class));
         mData.add(new ListItem<>(" ", AgentTestActivity.class));
         mData.add(new ListItem<>("Agent 测试", AgentTestActivity.class));
         mData.add(new ListItem<>("场景模式测试", AgentTestActivity.class));
