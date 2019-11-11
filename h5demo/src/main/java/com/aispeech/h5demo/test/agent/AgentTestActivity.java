@@ -12,6 +12,23 @@ public class AgentTestActivity extends BaseTestActivity {
         mData.add(new ListItem<>("文本请求", null));
         mData.add(new ListItem<>("开启对话", null));
         mData.add(new ListItem<>("终止对话", null));
+        mData.add(new ListItem<>("开启对话播报文本", null));
+        mData.add(new ListItem<>("终止对话播报文本", null));
+        mData.add(new ListItem<>("点击唤醒/停止识别/打断播报avatarClick", null));
+        mData.add(new ListItem<>("avatarClick附带欢迎语", null));
+//        mData.add(new ListItem<>("", null));
+//        mData.add(new ListItem<>("", null));
+//        mData.add(new ListItem<>("", null));
+//        mData.add(new ListItem<>("", null));
+//        mData.add(new ListItem<>("", null));
+//        mData.add(new ListItem<>("", null));
+//        mData.add(new ListItem<>("", null));
+//        mData.add(new ListItem<>("", null));
+//        mData.add(new ListItem<>("", null));
+//        mData.add(new ListItem<>("", null));
+//        mData.add(new ListItem<>("", null));
+//        mData.add(new ListItem<>("", null));
+
     }
 
     @Override
@@ -21,8 +38,44 @@ public class AgentTestActivity extends BaseTestActivity {
                 sendText();
                 break;
             case "开启对话":
+                sendText();
+                break;
+            case "终止对话":
+                sendText();
+                break;
+            case "开启对话播报文本":
+                sendText();
+                break;
+            case "终止对话播报文本":
+                sendText();
+                break;
+            case "点击唤醒/停止识别/打断播报":
+                sendText();
+                break;
+            case "avatarClick附带欢迎语":
 
                 break;
+//            case "":
+//
+//                break;
+//            case "":
+//
+//                break;
+//            case "":
+//
+//                break;
+//            case "":
+//
+//                break;
+//            case "":
+//
+//                break;
+//            case "":
+//
+//                break;
+//            case "":
+//
+//                break;
         }
     }
 
@@ -34,4 +87,66 @@ public class AgentTestActivity extends BaseTestActivity {
             e.printStackTrace();
         }
     }
+
+
+
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
+//
+//    private void {
+//
+//    }
 }
