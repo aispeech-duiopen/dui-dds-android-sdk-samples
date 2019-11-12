@@ -19,8 +19,11 @@ import com.aispeech.dui.dds.DDS;
 import com.aispeech.dui.dds.DDSAuthListener;
 import com.aispeech.dui.dds.DDSConfig;
 import com.aispeech.dui.dds.DDSInitListener;
+import com.aispeech.dui.dds.utils.AssetsUtil;
+import com.aispeech.m848.Recorder;
 import com.aispeech.nativedemo.ui.LauncherActivity;
 
+import java.io.File;
 import java.util.UUID;
 
 /**
@@ -62,6 +65,7 @@ public class DDSService extends Service {
     private void init() {
         DDS.getInstance().setDebugMode(2); //在调试时可以打开sdk调试日志，在发布版本时，请关闭
         DDS.getInstance().init(getApplicationContext(), createConfig(), mInitListener, mAuthListener);
+        Recorder.getInstance().start();
     }
 
     // dds初始状态监听器,监听init是否成功
@@ -119,6 +123,27 @@ public class DDSService extends Service {
         DDS.getInstance().release();
     }
 
+    private static final String AEC = "AEC_ch6-2-ch4_2ref_AITV_dtd_20190628_v2.0.1_gain2_thd0.001_dtd0.bin";
+    private static final String ULA_RES = "ULA_asr_ch4-2-ch4_35mm_v1.1.1.9_Hisense_20190529_dmode1_strong_house_asrpost0_sf0_wf0_short10_cpubind1_long80.bin";
+    private static final String WAKEUP = "wakeup_aihome_haixin_20190802_pre.bin";
+
+    private DDSConfig prepareBins(DDSConfig config, String aec, String ula, String wakeup) {
+        File file;
+        Context mContext = getApplicationContext();
+        file = mContext.getCacheDir();
+
+        if (file != null) {
+            AssetsUtil.copyAssetFileToTarget(mContext, file, aec, null);
+            AssetsUtil.copyAssetFileToTarget(mContext, file, ula, null);
+            AssetsUtil.copyAssetFileToTarget(mContext, file, wakeup, null);
+
+            config.addConfig(DDSConfig.K_MIC_ARRAY_AEC_CFG, file.getAbsolutePath() + "/" + aec);
+            config.addConfig(DDSConfig.K_MIC_ARRAY_BEAMFORMING_CFG, file.getAbsolutePath() + "/" + ula);
+            config.addConfig(DDSConfig.K_WAKEUP_BIN, file.getAbsolutePath() + "/" + wakeup);
+        }
+        return config;
+    }
+
     // 创建dds配置信息
     private DDSConfig createConfig() {
         DDSConfig config = new DDSConfig();
@@ -132,12 +157,16 @@ public class DDSService extends Service {
         config.addConfig(DDSConfig.K_DEVICE_ID, getDeviceId(getApplicationContext()));//填入唯一的deviceId -- 选填
 
         // 更多高级配置项,请参考文档: https://www.dui.ai/docs/ct_common_Andriod_SDK 中的 --> 四.高级配置项
+        config.addConfig(DDSConfig.K_MIC_TYPE, 2);
+        config.addConfig(DDSConfig.K_RECORDER_MODE, "external");
 
+//        config.addConfig(DDSConfig.K_USE_LOCAL_PCM_SERVER, "true");
+        config.addConfig("USE_JAVA_NODE", "true");
 
         // 资源更新配置项
-        // config.addConfig(DDSConfig.K_DUICORE_ZIP, "duicore.zip"); // 预置在指定目录下的DUI内核资源包名, 避免在线下载内核消耗流量, 推荐使用
+         config.addConfig(DDSConfig.K_DUICORE_ZIP, "duicore.zip"); // 预置在指定目录下的DUI内核资源包名, 避免在线下载内核消耗流量, 推荐使用
         // config.addConfig(DDSConfig.K_CUSTOM_ZIP, "product.zip"); // 预置在指定目录下的DUI产品配置资源包名, 避免在线下载产品配置消耗流量, 推荐使用
-        // config.addConfig(DDSConfig.K_USE_UPDATE_DUICORE, "false"); //设置为false可以关闭dui内核的热更新功能，可以配合内置dui内核资源使用
+         config.addConfig(DDSConfig.K_USE_UPDATE_DUICORE, "false"); //设置为false可以关闭dui内核的热更新功能，可以配合内置dui内核资源使用
         // config.addConfig(DDSConfig.K_USE_UPDATE_NOTIFICATION, "false"); // 是否使用内置的资源更新通知栏
 
         // 录音配置项
@@ -181,7 +210,7 @@ public class DDSService extends Service {
         // 全双工/半双工配置项
         // config.addConfig(DDSConfig.K_DUPLEX_MODE, "HALF_DUPLEX");// 半双工模式
         // config.addConfig(DDSConfig.K_DUPLEX_MODE, "FULL_DUPLEX");// 全双工模式
-
+        prepareBins(config, AEC, ULA_RES, WAKEUP);
         Log.i(TAG, "config->" + config.toString());
         return config;
     }
