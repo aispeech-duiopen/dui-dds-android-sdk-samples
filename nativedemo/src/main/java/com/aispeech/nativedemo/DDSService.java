@@ -121,6 +121,7 @@ public class DDSService extends Service {
         super.onDestroy();
         // 在退出app时将dds组件注销
         DDS.getInstance().release();
+        Recorder.getInstance().release();
     }
 
     private static final String AEC = "AEC_ch6-2-ch4_2ref_AITV_dtd_20190628_v2.0.1_gain2_thd0.001_dtd0.bin";
@@ -160,7 +161,8 @@ public class DDSService extends Service {
         config.addConfig(DDSConfig.K_MIC_TYPE, 2);
         config.addConfig(DDSConfig.K_RECORDER_MODE, "external");
 
-//        config.addConfig(DDSConfig.K_USE_LOCAL_PCM_SERVER, "true");
+        config.addConfig(DDSConfig.K_USE_LOCAL_PCM_SERVER, "true");
+        config.addConfig(DDSConfig.K_USE_VAD_IN_FULLDUPLEX, "false");
         config.addConfig("USE_JAVA_NODE", "true");
 
         // 资源更新配置项
@@ -196,9 +198,9 @@ public class DDSService extends Service {
 
         // 调试配置项
         // config.addConfig(DDSConfig.K_CACHE_PATH, "/sdcard/cache"); // 调试信息保存路径,如果不设置则保存在默认路径"/sdcard/Android/data/包名/cache"
-        // config.addConfig(DDSConfig.K_WAKEUP_DEBUG, "true"); // 用于唤醒音频调试, 开启后在 "/sdcard/Android/data/包名/cache" 目录下会生成唤醒音频
-        // config.addConfig(DDSConfig.K_VAD_DEBUG, "true"); // 用于过vad的音频调试, 开启后在 "/sdcard/Android/data/包名/cache" 目录下会生成过vad的音频
-        // config.addConfig(DDSConfig.K_ASR_DEBUG, "true"); // 用于识别音频调试, 开启后在 "/sdcard/Android/data/包名/cache" 目录下会生成识别音频
+         config.addConfig(DDSConfig.K_WAKEUP_DEBUG, "true"); // 用于唤醒音频调试, 开启后在 "/sdcard/Android/data/包名/cache" 目录下会生成唤醒音频
+         config.addConfig(DDSConfig.K_VAD_DEBUG, "true"); // 用于过vad的音频调试, 开启后在 "/sdcard/Android/data/包名/cache" 目录下会生成过vad的音频
+         config.addConfig(DDSConfig.K_ASR_DEBUG, "true"); // 用于识别音频调试, 开启后在 "/sdcard/Android/data/包名/cache" 目录下会生成识别音频
         // config.addConfig(DDSConfig.K_TTS_DEBUG, "true");  // 用于tts音频调试, 开启后在 "/sdcard/Android/data/包名/cache/tts/" 目录下会自动生成tts音频
 
         // 麦克风阵列配置项

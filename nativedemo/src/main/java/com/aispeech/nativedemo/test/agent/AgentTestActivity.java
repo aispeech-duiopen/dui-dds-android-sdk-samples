@@ -2,6 +2,7 @@ package com.aispeech.nativedemo.test.agent;
 
 import com.aispeech.dui.dds.DDS;
 import com.aispeech.dui.dds.agent.Agent;
+import com.aispeech.dui.dds.agent.tts.TTSEngine;
 import com.aispeech.dui.dds.exceptions.DDSNotInitCompleteException;
 
 import com.aispeech.nativedemo.test.BaseTestActivity;
@@ -13,6 +14,7 @@ public class AgentTestActivity extends BaseTestActivity {
     protected void initData() {
         mData.add(new ListItem<>("全双工", null));
         mData.add(new ListItem<>("半双工", null));
+        mData.add(new ListItem<>("在线tts", null));
         mData.add(new ListItem<>("文本请求", null));
         mData.add(new ListItem<>("开启对话", null));
         mData.add(new ListItem<>("终止对话", null));
@@ -48,6 +50,13 @@ public class AgentTestActivity extends BaseTestActivity {
             case "半双工":
                 try {
                     DDS.getInstance().getAgent().setDuplexMode(Agent.DuplexMode.HALF_DUPLEX);
+                } catch (DDSNotInitCompleteException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "在线tts":
+                try {
+                    DDS.getInstance().getAgent().getTTSEngine().setMode(TTSEngine.CLOUD);
                 } catch (DDSNotInitCompleteException e) {
                     e.printStackTrace();
                 }

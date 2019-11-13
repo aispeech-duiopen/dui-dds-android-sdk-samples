@@ -149,10 +149,10 @@ public class WakeupTestActivity extends BaseTestActivity {
     private void addMain() {
         try {
             WakeupWord minorWord = new WakeupWord()
-                    .setPinyin("ni hao xiao ming")
-                    .setWord("你好小明")
+                    .setPinyin("hai xin xiao ju")
+                    .setWord("海信小聚")
                     .setThreshold("0.15")
-                    .addGreeting("小明又回来了");
+                    .addGreeting("小聚又回来了");
             DDS.getInstance().getAgent().getWakeupEngine().addMainWakeupWord(minorWord);
         } catch (DDSNotInitCompleteException e) {
             e.printStackTrace();
