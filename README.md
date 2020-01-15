@@ -11,3 +11,4 @@ demo添加的技能: 新版天气 / 内置电话 / 新版日历 / 新版计算�
 
 demo支持体验语句: 苏州天气 / 打电话给XXX / 今天是星期几 / 一加二等于几 / 播放刘若英的后来 / 帮我找个女朋友 / 地球的周长是多少
 
+由于很多人反馈github无法下载, 我们将最新的工程转到码云来管理, 最新Demo地址: https://gitee.com/szaispeech/dui-dds-android-sdk-samples
